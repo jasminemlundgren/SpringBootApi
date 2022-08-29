@@ -24,7 +24,7 @@ public class MovieService {
 	
 //	public String deleteMovie(String name) {
 //		repository.deleteMovie(name);
-//		return name + "-movie deleted";
+//		return name + " movie deleted";
 //	}
 
 }

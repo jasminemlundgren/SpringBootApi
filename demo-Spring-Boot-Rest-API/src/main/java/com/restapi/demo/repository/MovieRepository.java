@@ -20,13 +20,25 @@ public class MovieRepository {
 	private List<Movie> movieList = new ArrayList<Movie>();
 	ObjectMapper objectMapper = new ObjectMapper();
 	
+	{
+		try {
+			movieList = objectMapper.readValue(Paths.get("movies-compact.json").toFile(),
+					new TypeReference<List<Movie>>() {
+					});
+		} catch (StreamReadException e) {
+			System.out.println(e);
+		} catch (DatabindException e) {
+			System.out.println(e);
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+	
 	public List<Movie> getAllMovies() {
-		readMovies();
 		return movieList;
 	}
 	
 	public Movie saveMovie(Movie m) {
-		readMovies();
 		Movie movie = new Movie();
 		movie.setName(m.getName());
 		movie.setYear(m.getYear());
@@ -66,17 +78,5 @@ public class MovieRepository {
 			e.printStackTrace();
 		}
 	}
-	public void readMovies() {
-	    try {
-			movieList = objectMapper.readValue(Paths.get("movies-compact.json").toFile(), new TypeReference<List<Movie>>(){});
-		} catch (StreamReadException e) {
-			System.out.println(e);
-		} catch (DatabindException e) {
-			System.out.println(e);
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-	    
-		}
 
 }
