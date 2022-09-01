@@ -22,9 +22,9 @@ public class MovieService {
 		return repository.saveMovie(movie);
 	}
 	
-//	public String deleteMovie(String name) {
-//		repository.deleteMovie(name);
-//		return name + " movie deleted";
-//	}
+	public String deleteMovie(String name) {
+		name = name.replaceAll("^\"|\"$", "");
+		return repository.deleteMovie(name);
+	}
 
 }

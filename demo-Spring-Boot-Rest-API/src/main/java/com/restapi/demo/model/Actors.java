@@ -1,11 +1,10 @@
 package com.restapi.demo.model;
 
-import java.util.List;
-
 public class Actors {
 	
 	private String firstName;
 	private String lastName;
+	
 	public String getFirstName() {
 		return firstName;
 	}

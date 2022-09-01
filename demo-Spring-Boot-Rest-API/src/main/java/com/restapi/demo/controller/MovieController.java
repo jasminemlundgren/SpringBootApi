@@ -31,8 +31,8 @@ public class MovieController {
 		return service.saveMovie(movie);
 	}
 	
-//	@DeleteMapping("/{name}")
-//	public String deleteMovie(@PathVariable(value = "name") String name) {
-//		return service.deleteMovie(name);
-//	}
+	@DeleteMapping("/{name}")
+	public String deleteMovie(@PathVariable(value = "name") String name) {
+		return service.deleteMovie(name);
+	}
 }

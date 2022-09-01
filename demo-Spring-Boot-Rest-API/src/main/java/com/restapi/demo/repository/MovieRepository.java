@@ -53,19 +53,16 @@ public class MovieRepository {
 		return movie;
 	}
 	
-//	public void deleteMovie(String movieName) {
-//		readMovies();
-//		movieName = movieName.replaceAll("^\"|\"$", "");
-//		System.out.println(movieName);
-//		for (Movie m : movieList) {
-//			if (m.getName().equals(movieName)) {
-//				System.out.println("Here");
-//				movieList.remove(m);
-//			}
-//		}
-//		writeMovies();
-//		
-//	}
+	public String deleteMovie(String movieName) {
+		for (Movie m : movieList) {
+			if (m.getName().equals(movieName)) {
+				movieList.remove(m);
+				break;
+			}
+		}
+		writeMovies();
+		return movieName + " movie deleted";
+	}
 	
 	public void writeMovies() {
 		try {
